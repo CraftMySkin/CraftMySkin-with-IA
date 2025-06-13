@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Community – CraftMySkin</title>
+  <link rel="stylesheet" href="estils.css" />
+  <script src="script.js" defer></script>
+  <style>
+    .community {
+      padding: 2em;
+      background-color: #2d2d2d;
+      color: #eee;
+      border-radius: 8px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .emeralds {
+      font-size: 1.5em;
+      margin-bottom: 1em;
+    }
+    .daily-btn, .buy-btn {
+      margin: 1em 0;
+      padding: 0.8em 1.2em;
+      font-size: 1em;
+      background-color: #4caf50;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .cofre-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5em;
+      margin: 1.5em 0;
+    }
+    .cofre {
+      background-color: #3e3e3e;
+      padding: 2em;
+      text-align: center;
+      cursor: pointer;
+      border: 2px solid #666;
+      border-radius: 5px;
+    }
+    .disabled {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    .shop {
+      margin-top: 2em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🌍 CraftMySkin</div>
+    <nav>
+      <ul>
+        <li><a href="index.html" data-i18n="home">Home</a></li>
+        <li><a href="skins.html" data-i18n="skins">Skin Generator</a></li>
+        <li><a href="vip.html" data-i18n="vip">VIP Server</a></li>
+        <li><a href="comunitat.html" data-i18n="community">Community</a></li>
+        <li><a href="wiki.html" data-i18n="wiki">Wiki</a></li>
+        <li>
+          <select id="languageSelector">
+            <option value="en">EN</option>
+            <option value="es">ES</option>
+            <option value="ca">CA</option>
+          </select>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="community">
+      <h1 data-i18n="community">🎉 Community Rewards</h1>
+      <div class="emeralds">
+        💎 <span data-i18n="yourEmeralds">Your emeralds</span>: <span id="emeralds">0</span>
+      </div>
+      <button class="daily-btn" onclick="claimDaily()" id="dailyBtn" data-i18n="dailyReward">Claim Daily Reward (+5 emeralds)</button>
+
+      <h2 data-i18n="openChest">🎁 Open a Chest</h2>
+      <div class="cofre-grid" id="chestGrid"></div>
+      <div id="chestResult"></div>
+
+      <div class="shop">
+        <h2 data-i18n="shop">🛒 Shop</h2>
+        <button class="buy-btn" onclick="buyItem('discord')" data-i18n="buyDiscord">Join Discord (10 emeralds)</button><br/>
+        <button class="buy-btn" onclick="buyItem('vip')" data-i18n="buyVIP">VIP Server Access (100 emeralds)</button>
+        <div id="shopMessage"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CraftMySkin – Made with ❤️ for Minecraft players</p>
+  </footer>
+
+  
+</html>
+
+  <script>
+    const emeraldsSpan = document.getElementById("emeralds");
+    const dailyBtn = document.getElementById("dailyBtn");
+    const chestGrid = document.getElementById("chestGrid");
+    const chestResult = document.getElementById("chestResult");
+    const shopMessage = document.getElementById("shopMessage");
+
+    const today = new Date().toDateString();
+    let emeralds = parseInt(localStorage.getItem("emeralds")) || 0;
+    let lastClaim = localStorage.getItem("lastDaily") || "";
+    let lastChestOpen = parseInt(localStorage.getItem("lastChestTime")) || 0;
+
+    function updateEmeralds() {
+      emeraldsSpan.textContent = emeralds + " 💎";
+      localStorage.setItem("emeralds", emeralds);
+    }
+
+    function claimDaily() {
+      if (lastClaim !== today) {
+        emeralds += 5;
+        lastClaim = today;
+        localStorage.setItem("lastDaily", today);
+        updateEmeralds();
+        dailyBtn.disabled = true;
+        dailyBtn.textContent = "✅ Claimed today";
+      }
+    }
+
+    function setupChestGrid() {
+      const now = Date.now();
+      const canOpen = (now - lastChestOpen) > 86400000; // 24h
+      chestGrid.innerHTML = "";
+      for (let i = 0; i < 9; i++) {
+        const cofre = document.createElement("div");
+        cofre.className = "cofre";
+        cofre.textContent = "❓";
+        if (canOpen) {
+          cofre.onclick = () => openChest(cofre);
+        } else {
+          cofre.classList.add("disabled");
+        }
+        chestGrid.appendChild(cofre);
+      }
+    }
+
+    function openChest(element) {
+      const rewards = ["x5", "x3", "x2", "x2", "💨", "💨", "💨", "💨", "💨"];
+      const reward = rewards[Math.floor(Math.random() * rewards.length)];
+      element.textContent = reward;
+      element.classList.add("disabled");
+      chestGrid.querySelectorAll(".cofre").forEach(c => c.classList.add("disabled"));
+      lastChestOpen = Date.now();
+      localStorage.setItem("lastChestTime", lastChestOpen);
+
+      let extra = 0;
+      if (reward === "x5") extra = 5;
+      else if (reward === "x3") extra = 3;
+      else if (reward === "x2") extra = 2;
+      else extra = 0;
+
+      if (extra > 0) {
+        emeralds += 5 * extra;
+        updateEmeralds();
+        chestResult.innerHTML = `<p>You got: <strong>${reward}</strong>! 💥 +${5 * extra} emeralds!</p>`;
+      } else {
+        chestResult.innerHTML = `<p>You opened the chest and found... air 💨</p>`;
+      }
+    }
+
+    function buyItem(type) {
+      if (type === "discord" && emeralds >= 10) {
+        emeralds -= 10;
+        updateEmeralds();
+        shopMessage.innerHTML = "✅ Discord access granted!";
+      } else if (type === "vip" && emeralds >= 100) {
+        emeralds -= 100;
+        updateEmeralds();
+        shopMessage.innerHTML = "🎉 VIP access unlocked!";
+      } else {
+        shopMessage.innerHTML = "❌ Not enough emeralds!";
+      }
+    }
+
+    // Init
+    updateEmeralds();
+    setupChestGrid();
+    if (lastClaim === today) {
+      dailyBtn.disabled = true;
+      dailyBtn.textContent = "✅ Claimed today";
+    }
+  </script>
+</body>
+</html>

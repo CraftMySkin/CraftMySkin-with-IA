@@ -1,0 +1,8 @@
+
+// Add to script.js i18n dictionary
+i18n['en']['familycraft'] = 'FamilyCraft';
+i18n['es']['familycraft'] = 'FamilyCraft';
+i18n['ca']['familycraft'] = 'FamilyCraft';
+i18n['en']['joinFamily'] = '🎁 Join FamilyCraft!';
+i18n['es']['joinFamily'] = '🎁 ¡Únete a FamilyCraft!';
+i18n['ca']['joinFamily'] = '🎁 Uneix-te a FamilyCraft!';
