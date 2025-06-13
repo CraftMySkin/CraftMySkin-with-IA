@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skin Generator – CraftMySkin</title>
+  <link rel="stylesheet" href="estils.css" />
+  <script src="script.js" defer></script>
+  <style>
+    .skin-generator {
+      padding: 2em;
+      max-width: 900px;
+      margin: auto;
+      color: #eee;
+    }
+    .skin-generator input[type="file"],
+    .skin-generator button {
+      margin: 1em 0;
+      padding: 0.8em;
+      border-radius: 5px;
+    }
+    #skinPreview {
+      margin-top: 1em;
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .test-section {
+      margin-top: 3em;
+      padding: 2em;
+      background-color: #333;
+      border-radius: 10px;
+    }
+    .question {
+      margin-bottom: 1em;
+    }
+    .question label {
+      display: block;
+      margin: 0.3em 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🌍 CraftMySkin</div>
+    <nav>
+      <ul>
+        <li><a href="index.html" data-i18n="home">Home</a></li>
+        <li><a href="skins.html" data-i18n="skins">Skin Generator</a></li>
+        <li><a href="vip.html" data-i18n="vip">VIP Server</a></li>
+        <li><a href="comunitat.html" data-i18n="familycraft">FamilyCraft</a></li>
+        <li><a href="wiki.html" data-i18n="wiki">Wiki</a></li>
+        <li>
+          <select id="languageSelector">
+            <option value="en">EN</option>
+            <option value="es">ES</option>
+            <option value="ca">CA</option>
+          </select>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="skin-generator">
+      <h1 data-i18n="skinGen">🎨 Generate Your Minecraft Skin</h1>
+      <input type="file" id="photoUpload" />
+      <button onclick="generateSkin()" data-i18n="generateSkin">Generate Skin</button>
+      <div id="skinResult">
+        <img id="skinPreview" src="" alt="" style="display:none;" />
+      </div>
+
+      <div class="test-section">
+        <h2 data-i18n="notFoundSkin">❔ Still haven't found your ideal skin?</h2>
+        <p data-i18n="takeTest">Take this quick test to help us assign you one!</p>
+
+        <form id="skinTestForm">
+          <div class="question">
+            <label>Age range:</label>
+            <label><input type="radio" name="age" value="young" /> Under 12</label>
+            <label><input type="radio" name="age" value="teen" /> 13–18</label>
+            <label><input type="radio" name="age" value="adult" /> 18+</label>
+          </div>
+
+          <div class="question">
+            <label>Do you usually play:</label>
+            <label><input type="radio" name="mode" value="solo" /> Alone</label>
+            <label><input type="radio" name="mode" value="friends" /> With friends</label>
+          </div>
+
+          <div class="question">
+            <label>Your Minecraft level:</label>
+            <label><input type="radio" name="level" value="noob" /> Noob</label>
+            <label><input type="radio" name="level" value="normal" /> Casual</label>
+            <label><input type="radio" name="level" value="pro" /> Pro</label>
+          </div>
+
+          <div class="question">
+            <label>Favorite playstyle:</label>
+            <label><input type="radio" name="style" value="builder" /> Builder</label>
+            <label><input type="radio" name="style" value="pvp" /> PvP</label>
+            <label><input type="radio" name="style" value="miner" /> Explorer/Miner</label>
+          </div>
+
+          <button type="button" onclick="assignSkin()" class="button">Get My Skin</button>
+        </form>
+        <div id="testSkinResult" style="margin-top:1em;"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CraftMySkin – Made with ❤️ for Minecraft players</p>
+  </footer>
+
+  <script>
+    function generateSkin() {
+      const skins = [
+        "https://minecraftskins.com/uploads/skin.png",
+        "https://i.imgur.com/3G3nZKJ.png",
+        "https://i.imgur.com/EyzC1Ah.png",
+        "https://i.imgur.com/jqg7dP2.png"
+      ];
+      const random = skins[Math.floor(Math.random() * skins.length)];
+      const preview = document.getElementById("skinPreview");
+      preview.src = random;
+      preview.style.display = "block";
+    }
+
+    function assignSkin() {
+      const skins = [
+        "https://i.imgur.com/3G3nZKJ.png",
+        "https://i.imgur.com/EyzC1Ah.png",
+        "https://i.imgur.com/jqg7dP2.png",
+        "https://i.imgur.com/Gekzksr.png"
+      ];
+      const skin = skins[Math.floor(Math.random() * skins.length)];
+      document.getElementById("testSkinResult").innerHTML =
+        "<p>✨ Here's a skin just for you:</p><img src='" + skin + "' style='max-width:200px; border-radius:8px;' />";
+    }
+  </script>
+</body>
+</html>

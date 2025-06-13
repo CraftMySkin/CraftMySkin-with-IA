@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  background-color: #1c1c1c;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #2d2d2d;
+  border-bottom: 4px solid #4caf50;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1em;
+  color: #a2ff75;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+nav a {
+  color: #e0e0e0;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #a2ff75;
+}
+
+#languageSelector {
+  background-color: #333;
+  color: #e0e0e0;
+  border: none;
+  padding: 0.2em;
+  font-family: inherit;
+}
+
+main {
+  padding: 2em;
+}
+
+.hero {
+  background: linear-gradient(to top, #5a3d2b, #3b291a);
+  padding: 2em;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.hero h1 {
+  color: #a2ff75;
+  margin-bottom: 1em;
+}
+
+.button {
+  display: inline-block;
+  background-color: #4caf50;
+  color: #fff;
+  padding: 0.8em 1.2em;
+  text-decoration: none;
+  margin-top: 1em;
+  border-radius: 4px;
+}
+
+.button:hover {
+  background-color: #388e3c;
+}
+
+.button.secondary {
+  background-color: #795548;
+}
+
+.button.secondary:hover {
+  background-color: #5d4037;
+}
+
+.vip-notice {
+  background-color: #2f2f2f;
+  border-left: 4px solid #4caf50;
+  padding: 1.5em;
+  border-radius: 6px;
+}
+
+footer {
+  background-color: #111;
+  color: #888;
+  padding: 1em;
+  text-align: center;
+  font-size: 0.7em;
+  border-top: 2px solid #333;
+}
+
+.locked {
+  background-color: #292929;
+  border: 3px dashed #4caf50;
+  text-align: center;
+  padding: 3em 2em;
+  border-radius: 10px;
+  color: #bbb;
+}
+
+.lock-icon {
+  font-size: 3em;
+  margin: 0.5em 0;
+}
+
+.locked h2 {
+  color: #a2ff75;
+  font-size: 1.2em;
+  margin: 1em 0;
+}
