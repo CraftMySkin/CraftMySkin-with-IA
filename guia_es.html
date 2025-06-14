@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pro Guide</title>
+    <link rel="stylesheet" href="estils.css">
+</head>
+<body>
+    <div id="language-selector" style="position: absolute; top: 10px; right: 20px;">
+        <select onchange="changeLanguage(this.value)">
+            <option value="en" selected>English</option>
+            <option value="es">Español</option>
+        </select>
+    </div>
+    <script>
+      function changeLanguage(lang) {
+        if (lang === 'es') {
+          window.location.href = 'guia_es.html';
+        }
+      }
+    </script>
+
+    <main class="guide-container">
+        <h1 class="main-title">Ultimate Technical Minecraft Guide</h1>
+
+        <section class="step-box">
+            <h2>Step 1: Starting Out</h2>
+            <p>Start freely. You don't need full armor yet—basic stone tools are enough. Look for a village.</p>
+        </section>
+
+        <section class="step-box">
+            <h2>Step 2: Villager Trading</h2>
+            <p>Use sticks (crafted from wood) to trade with fletchers and get emeralds. Level up villagers even if you "waste" emeralds at first.</p>
+            <p>The best food is golden carrots (from farmer villagers).</p>
+            <img src="img/villager_trading.png" alt="Villager Trading">
+        </section>
+
+        <section class="step-box">
+            <h2>Step 3: Iron Farm</h2>
+            <p>Build a semi-automatic or automatic iron farm. Keep at least 100 blocks distance from the villager breeder for max efficiency.</p>
+        </section>
+
+        <section class="step-box">
+            <h2>Step 4: Giant Tree Harvest</h2>
+            <p>Spruce trees (4x4) yield lots of wood. Great for trading and crafting.</p>
+        </section>
+
+        <section class="step-box">
+            <h2>Step 5: End and Elytra</h2>
+            <p>Prepare with full diamond armor (from villagers, even if it's not perfect). Bring feather falling potions to fight the Ender Dragon safely.</p>
+        </section>
+
+        <section class="step-box">
+            <h2>Step 6: XP Farm</h2>
+            <p>Build an XP farm using villagers for enchantments. It's easy and very efficient.</p>
+        </section>
+    </main>
+  <script defer src="script.js"></script>
+</body>
+</html>
