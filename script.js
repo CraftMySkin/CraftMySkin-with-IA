@@ -1,0 +1,1 @@
+// selector d'idioma aplicat correctament
