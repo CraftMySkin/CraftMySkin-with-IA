@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+body {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    line-height: 1.8;
+}
+</style>
+
+    <meta charset="UTF-8">
+    <title>📘 Minecraft Technical Guide</title>
+    <link rel="stylesheet" href="estils.css">
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            
+            margin: 2rem;
+        }
+        h1 {
+            color: #80ff80;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .box {
+            background-color: #2c2c2c;
+            border-left: 5px solid #80ff80;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 6px;
+        }
+        h2 {
+            color: #6cc7ff;
+        }
+    </style>
+</head>
+<body>
+
+<div style="text-align: right; margin-bottom: 1rem;">
+    <label for="lang">🌐 Idioma / Language:</label>
+    <select id="lang" onchange="canviaIdioma()">
+        <option value="ca">Català</option>
+        <option value="es">Español</option>
+        <option value="en">English</option>
+    </select>
+</div>
+<script>
+    function canviaIdioma() {
+        const lang = document.getElementById('lang').value;
+        if (lang === 'ca') window.location.href = 'guia.html';
+        else if (lang === 'es') window.location.href = 'guia_es.html';
+        else if (lang === 'en') window.location.href = 'guia_en.html';
+    }
+</script>
+
+    <h1>📘 Minecraft Technical Guide</h1>
+
+    <div class="box">
+        <h2>1. Start freely</h2>
+        <p>Collect wood, stone, food... No armor needed. Just basic tools.</p>
+    </div>
+
+    <div class="box">
+        <h2>2. Find a village and breed villagers</h2>
+        <p>You can build a <strong>semi-automatic</strong> or <strong>automatic</strong> farm depending on your level. Watch this <a href="https://youtu.be/96OFLgaszRw" target="_blank">example</a>.</p>
+    </div>
+
+    <div class="box">
+        <h2>3. Build an iron farm</h2>
+        <p>A lot of emeralds! But it must be at least <strong>100 blocks</strong> from the villager breeder to work efficiently.</p>
+    </div>
+
+    <div class="box">
+        <h2>4. Villager professions</h2>
+        <ul>
+            <li><strong>Fletcher:</strong> sticks → emeralds</li>
+            <li><strong>Librarian:</strong> enchantments</li>
+            <li><strong>Armorer:</strong> diamond armor</li>
+            <li><strong>Toolsmith:</strong> pickaxes and axes</li>
+            <li><strong>Farmer:</strong> vegetables → emeralds</li>
+            <li><strong>Cleric:</strong> ender pearls, redstone</li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <h2>5. Grow spruce trees 2x2</h2>
+        <p>They yield lots of wood, ideal for trading sticks.</p>
+    </div>
+
+    <div class="box">
+        <h2>6. Kill the dragon</h2>
+        <p>Go with diamond armor from villagers, even if basic. Bring slow falling potions!</p>
+    </div>
+
+    <div class="box">
+        <h2>7. XP farm with villagers</h2>
+        <p>Trading gives lots of XP and repairs gear with Mending.</p>
+    </div>
+
+    <div class="box">
+        <h2>8. Free play</h2>
+        <p>Creeper farms, raids, slime... depending on what you want to build.</p>
+    </div>
+
+</body>
+</html>

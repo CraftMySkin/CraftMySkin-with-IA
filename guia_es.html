@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+body {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    line-height: 1.8;
+}
+</style>
+
+    <meta charset="UTF-8">
+    <title>📘 Guía Técnica de Minecraft</title>
+    <link rel="stylesheet" href="estils.css">
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            
+            margin: 2rem;
+        }
+        h1 {
+            color: #80ff80;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .box {
+            background-color: #2c2c2c;
+            border-left: 5px solid #80ff80;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 6px;
+        }
+        h2 {
+            color: #6cc7ff;
+        }
+    </style>
+</head>
+<body>
+
+<div style="text-align: right; margin-bottom: 1rem;">
+    <label for="lang">🌐 Idioma / Language:</label>
+    <select id="lang" onchange="canviaIdioma()">
+        <option value="ca">Català</option>
+        <option value="es">Español</option>
+        <option value="en">English</option>
+    </select>
+</div>
+<script>
+    function canviaIdioma() {
+        const lang = document.getElementById('lang').value;
+        if (lang === 'ca') window.location.href = 'guia.html';
+        else if (lang === 'es') window.location.href = 'guia_es.html';
+        else if (lang === 'en') window.location.href = 'guia_en.html';
+    }
+</script>
+
+    <h1>📘 Guía Técnica de Minecraft</h1>
+
+    <div class="box">
+        <h2>1. Empieza libre</h2>
+        <p>Recolecta madera, piedra, comida... No necesitas armadura. Solo herramientas básicas.</p>
+    </div>
+
+    <div class="box">
+        <h2>2. Encuentra una aldea y cría aldeanos</h2>
+        <p>Puedes hacer una granja <strong>semiautomática</strong> o <strong>automática</strong> según tu nivel. Mira este <a href="https://youtu.be/96OFLgaszRw" target="_blank">ejemplo</a>.</p>
+    </div>
+
+    <div class="box">
+        <h2>3. Haz una granja de hierro</h2>
+        <p>¡Muchas esmeraldas! Pero debe estar a <strong>100 bloques</strong> de la granja de aldeanos para funcionar bien.</p>
+    </div>
+
+    <div class="box">
+        <h2>4. Profesiones de los aldeanos</h2>
+        <ul>
+            <li><strong>Flechero:</strong> palos → esmeraldas</li>
+            <li><strong>Bibliotecario:</strong> encantamientos</li>
+            <li><strong>Armero:</strong> armaduras de diamante</li>
+            <li><strong>Herrero:</strong> picos y hachas</li>
+            <li><strong>Granjero:</strong> verduras → esmeraldas</li>
+            <li><strong>Clérigo:</strong> perlas de ender, redstone</li>
+        </ul>
+    </div>
+
+    <div class="box">
+        <h2>5. Planta abetos 2x2</h2>
+        <p>Dan mucha madera, ideal para comerciar con palos.</p>
+    </div>
+
+    <div class="box">
+        <h2>6. Mata al dragón</h2>
+        <p>Ve con armadura de diamante de algún aldeano, aunque sea básica. ¡Lleva pociones de caída lenta!</p>
+    </div>
+
+    <div class="box">
+        <h2>7. Granja de experiencia con aldeanos</h2>
+        <p>Comerciar con ellos da mucha XP y repara con Mending.</p>
+    </div>
+
+    <div class="box">
+        <h2>8. Juego libre</h2>
+        <p>Granjas de creepers, raids, slime... según lo que quieras construir.</p>
+    </div>
+
+</body>
+</html>
